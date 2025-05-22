@@ -65,3 +65,30 @@ console.log(b1.value); // 1
 
 //返回对象
 const myCustomObject = { custom: true };
+function SpeciesBox(value) {
+  this.value = value;
+  return myCustomObject; //返回对象
+}
+const b2 = new SpeciesBox(1);
+console.log(b2 === myCustomObject); // true
+console.log(b2.value); // undefined
+console.log(b2 instanceof SpeciesBox); // false
+
+console.log("------------------");
+//instanceof运算符
+function A() {}
+function B() {}
+
+B.prototype = Object.create(A.prototype); //设置B的原型为A的实例
+B.prototype.constructor = B; //修正B的构造函数指向
+const bInstance = new B(); //创建B的实例
+console.log(Object.getPrototypeOf(B.prototype) === A.prototype); // true
+console.log(bInstance instanceof B); // true
+console.log(bInstance instanceof A); // true
+console.log(bInstance instanceof Object); // true
+
+const aInstance = new A(); //创建A的实例
+console.log(aInstance instanceof B); // false
+
+const obj = {};
+console.log(obj instanceof Object); // true
