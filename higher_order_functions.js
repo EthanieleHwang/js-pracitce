@@ -62,3 +62,15 @@ console.log("sum:", sum); // 输出: sum: 402
 //注意：如果数组为空，初始值将被返回
 const average = scores.length > 0 ? sum / scores.length : 0;
 console.log("average:", average); // 输出: average: 80.4
+
+console.log("-----------------");
+//5.find(callbackFn)
+const users = [
+  { id: 1, name: "Alice" },
+  { id: 2, name: "Bob" },
+  { id: 3, name: "Charlie" },
+];
+const firstAlice = users.find(function (user) {
+  return user.name === "Alice";
+});
+console.log(firstAlice); // 输出: {id: 1, name: "Alice"}
