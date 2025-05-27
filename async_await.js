@@ -47,4 +47,26 @@ function processDataWithThenCatch() {
   //     console.log(".then().catch() processing for failure finished.\n");
   //   });
 }
-processDataWithThenCatch();
+
+//使用async/await
+async function processDataWithAsyncAwait() {
+  console.log("Use async/await: to process data");
+
+  //尝试成功
+  console.log("Attempting successful fetch with async/await...");
+  try {
+    const response = await fetchDataPromise(true);
+    console.log("Data received:", response.data);
+    // 假设这里有进一步处理，也可能抛错
+    if (response.data.includes("Error")) {
+      throw new Error("Invalid data format in async function"); // 这个错误会被下面的 catch 捕获
+    }
+    const uppercasedData = response.data.toUpperCase();
+    console.log("Uppercased data:", uppercasedData);
+  } catch (error) {
+    console.error("Error caught in async/await:", error.message);
+  } finally {
+    console.log("Async/await processing finished.\n");
+  }
+}
+processDataWithAsyncAwait();
