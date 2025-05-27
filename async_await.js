@@ -5,7 +5,7 @@ function fetchDataPromise(shouldSucceed) {
       if (shouldSucceed) {
         resolve({
           data: "Sample Data fromo Promise",
-          timestamp: DataTransfer.now(),
+          timestamp: Date.now(),
         });
       } else {
         reject(new Error("Promise:Failed to fetch data"));
