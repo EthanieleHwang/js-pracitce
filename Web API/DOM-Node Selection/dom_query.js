@@ -14,7 +14,9 @@ const htmlContent = `<div id="container">
 
 console.log("---querySelector Example---");
 
-const containerDiv = htmlContent.querySelector("#container");
+const dom = new JSDOM(htmlContent);
+const document = dom.window.document;
+const containerDiv = document.querySelector("#container");
 console.log("Container Div:", containerDiv);
 
 //2.选择第一个class为“highlight”的元素

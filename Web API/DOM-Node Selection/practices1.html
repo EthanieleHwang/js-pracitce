@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <header>
+        <h1 class="title main-title">DOM Adventures</h1>
+        <nav>
+          <ul id="main-nav">
+            <li><a href="#" data-nav="home">Home</a></li>
+            <li><a href="#" data-nav="about" class="active">About Us</a></li>
+            <li><a href="#" data-nav="services">Services</a></li>
+          </ul>
+        </nav>
+      </header>
+      <main>
+        <section class="content-section" data-section-id="intro">
+          <p>Welcome to our page!</p>
+          <button class="btn primary-btn">Learn More</button>
+        </section>
+        <section class="content-section" data-section-id="contact">
+          <p>Contact us via the form below.</p>
+          <button class="btn">Submit</button>
+        </section>
+      </main>
+      <div class="hidden-elements">
+        <p class="note">This is a hidden note.</p>
+      </div>
+    </div>
+    <script>
+      const myUl = document.getElementById("main-nav");
+      if (myUl) {
+        myUl.style.backgroundColor = "#f0f0f0";
+      }
+      const mySection = document.querySelectorAll(".content-section");
+      for (let i = 0; i < mySection.length; i++) {
+        mySection[i].querySelector("p").style.color = "red";
+      }
+      const myBtn = document.querySelector(".btn");
+      if (myBtn) {
+        myBtn.style.backgroundColor = "blue";
+      }
+    </script>
+  </body>
+</html>
