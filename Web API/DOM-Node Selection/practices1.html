@@ -37,13 +37,37 @@
         myUl.style.backgroundColor = "#f0f0f0";
       }
       const mySection = document.querySelectorAll(".content-section");
+      // console.log(mySection);
       for (let i = 0; i < mySection.length; i++) {
-        mySection[i].querySelector("p").style.color = "red";
+        const section = mySection[i];
+        const firstParagraph = section.querySelector("p");
+        if (firstParagraph) {
+          firstParagraph.classList.add("info-text");
+        }
       }
-      const myBtn = document.querySelector(".btn");
-      if (myBtn) {
-        myBtn.style.backgroundColor = "blue";
+
+      //3.  **选择所有 `data-nav` 属性值为 "home" 的 `<a>` 元素，并将其文本颜色改为蓝色。**
+      const homeLinks = document.querySelectorAll('a[data-nav="home"]');
+      homeLinks.forEach((link) => {
+        link.style.color = "green";
+      });
+
+      // 4.  **选择 `main` 元素内部所有类名包含 `btn` 的按钮，并统计它们的数量。**
+      const mainElement = document.querySelector("main");
+      if (mainElement) {
+        const btnElement = mainElement.querySelectorAll(".btn");
+        console.log(
+          "Number of buttons ini main ocntaining 'btn' class:.",
+          btnElement.length
+        );
       }
+      // 5.  **动态地在 `id="app"` 的末尾添加一个新的 `div`，其类名为 `content-section`。然后，分别通过 `getElementsByClassName` 和 `querySelectorAll` 再次获取所有 `.content-section` 元素，比较它们的 `length`。**
+      const appDiv = document.getElementById("app");
+
+      //先获取初始集合
+      const liveSections = document.getElementsByClassName("content-section");
+      const staticSections = document.querySelectorAll(".content-section");
+      console.log("Initial liveSections length:", liveSections.length);
     </script>
   </body>
 </html>
